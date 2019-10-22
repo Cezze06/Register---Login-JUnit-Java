@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Frontera;
-
+import Control.ValidarRegistro;
+import Entidad.Usuario;
 /**
  *
  * @author ZERAX
@@ -32,7 +33,8 @@ public class Registro extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         nombreTF = new javax.swing.JTextField();
         contraseniaTF = new javax.swing.JTextField();
-        validarContraseniaTF = new javax.swing.JTextField();
+        confirmarContraseniaTF = new javax.swing.JTextField();
+        OK = new javax.swing.JButton();
 
         jLabel1.setText("Nombre");
 
@@ -40,6 +42,8 @@ public class Registro extends javax.swing.JPanel {
 
         jLabel3.setText("Validar contraseña");
         jLabel3.setToolTipText("");
+
+        OK.setLabel("OK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -55,8 +59,12 @@ public class Registro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(contraseniaTF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                     .addComponent(nombreTF, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(validarContraseniaTF, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(confirmarContraseniaTF, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(121, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(OK)
+                .addGap(113, 113, 113))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,18 +80,41 @@ public class Registro extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(validarContraseniaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(183, Short.MAX_VALUE))
+                    .addComponent(confirmarContraseniaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(OK)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
+
+        confirmarContraseniaTF.getAccessibleContext().setAccessibleName("confirmarContraseniaTF");
+        OK.getAccessibleContext().setAccessibleName("OK");
+        OK.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void contraseniaTFActionPerformed(java.awt.event.ActionEvent evt){
+        
+    }
+    
+    private void OKActionPerformed(java.awt.event.ActionEvent evt){
+        Usuario usuario = new Usuario();
+        usuario.setNombre(nombreTF.getText());
+        usuario.setPassword(contraseniaTF.getText());
+        
+        ValidarRegistro validar = new ValidarRegistro();
+        System.out.println("________________________");
+        String resultado = validar.verificarRegistro(usuario, confirmarContraseniaTF.getText());
+        System.out.println(resultado);
+        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton OK;
+    private javax.swing.JTextField confirmarContraseniaTF;
     private javax.swing.JTextField contraseniaTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField nombreTF;
-    private javax.swing.JTextField validarContraseniaTF;
     // End of variables declaration//GEN-END:variables
 }
