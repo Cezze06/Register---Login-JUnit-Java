@@ -4,15 +4,20 @@
  * and open the template in the editor.
  */
 package DAO;
-import javax.persistence.*;
+//import javax.persistence.*;
 import Entidad.Usuario;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.NonUniqueResultException;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 /**
  *
  * @author ZERAX
  */
 public class UsuarioDAO {
     
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ApplicationTestHome");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("LoginApp_JPAPU");
     
     public void crear(Usuario object){
         
@@ -93,12 +98,5 @@ public class UsuarioDAO {
             em.close();
             return ret;
         }
-        
-        
-        
-        
-        
     }
-    
-    
 }

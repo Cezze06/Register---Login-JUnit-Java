@@ -165,39 +165,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
     }
     
-    public void inicializacion(){
-        
-        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-        
-        Usuario a = new Usuario();  //Declarar objetos de top Usuario
-        Usuario b = new Usuario(); 
-        Usuario c = new Usuario(); 
-        
-        
-        a.setNombre("Juan");        //Agregar atributos de a
-        a.setPassword("1234");
-        b.setNombre("Pedro");
-        b.setPassword("123");
-        c.setNombre("Maria");
-        c.setPassword("12345");
-        
-        usuarios.add(a);    //Agregar al array List
-        usuarios.add(b);
-        usuarios.add(c);
-        
-        
-        sistema.setUsuarios(usuarios); //Se le està pasando el arraylist
-        
-        //System.out.println("-----" + usuarios);
-        
-        for (Usuario u: sistema.getUsuarios()){ //Lee lo que tenga el arrayList
-            System.out.println(u.getNombre());
-            System.out.println(u.getPassword());
-            System.out.println("---------");
-        }
-     
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ingresoB;
     private javax.swing.JPanel jPanel1;
@@ -205,4 +172,32 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JButton registroB;
     // End of variables declaration//GEN-END:variables
+public void inicializacion ()
+{
+    ArrayList <Usuario> usuarios = new ArrayList<Usuario>(); 
+    
+    Usuario a= new Usuario(); 
+    Usuario b= new Usuario(); 
+    Usuario c= new Usuario(); 
+    
+    a.setNombre("Juan");
+    b.setNombre("Pedro");
+    c.setNombre("Maria");
+    
+    a.setPassword("1234");
+    b.setPassword("123");
+    c.setPassword("12345");
+    
+    usuarios.add(a);
+    usuarios.add(b);
+    usuarios.add(c);
+    sistema.setUsuarios(usuarios);
+    
+    for(Usuario u: sistema.getUsuarios())
+    {
+        System.out.println(u.getNombre());
+        System.out.println(u.getPassword());
+        System.out.println("------------");
+    }
+}
 }

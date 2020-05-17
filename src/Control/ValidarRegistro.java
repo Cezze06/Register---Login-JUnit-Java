@@ -24,12 +24,15 @@ public class ValidarRegistro {
     
     public String verificarRegistro(Usuario usuario, String confirmarContrasenia){
         ArrayList <Usuario> usuarios = new ArrayList<Usuario>();
-        if(!verificarLongitudNombre (usuario.getNombre()))
+        if(!verificarLongitudNombre (usuario.getNombre())){
             return ("Longitud nombre incorrecta");
-        if(!verificarLongitudPassword (usuario.getPassword()))
+        }
+        if(!verificarLongitudPassword (usuario.getPassword())){
             return ("Longitud contraseña incorrecta");
-        if(!verificarPasswordIguales (usuario.getPassword(), confirmarContrasenia))
+        }
+        if(!verificarPasswordIguales (usuario.getPassword(), confirmarContrasenia)){
             return ("Las contraseñas no coinciden");
+        }
         for (Usuario u: sistema.getUsuarios()){
             if(u.getNombre().equals(usuario.getNombre())){
                 return ("El nombre ya existe");

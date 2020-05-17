@@ -90,10 +90,15 @@ public class Registro extends javax.swing.JPanel {
         OK.getAccessibleContext().setAccessibleName("OK");
         OK.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void nombreTFActionPerformed(java.awt.event.ActionEvent evt){
+        
+    }
+    
     private void contraseniaTFActionPerformed(java.awt.event.ActionEvent evt){
         
     }
+    
     
     private void OKActionPerformed(java.awt.event.ActionEvent evt){
         Usuario usuario = new Usuario();
